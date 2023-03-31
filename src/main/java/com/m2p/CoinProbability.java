@@ -23,4 +23,7 @@ public class CoinProbability {
     }
 
 
+    public CoinProbability complement() {
+        return new CoinProbability(1 - this.probability);
+    }
 }
