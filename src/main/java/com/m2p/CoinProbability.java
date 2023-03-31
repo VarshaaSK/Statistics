@@ -17,4 +17,10 @@ public class CoinProbability {
         CoinProbability that = (CoinProbability) object;
         return probability == that.probability;
     }
+
+    public CoinProbability eventOccurringTogether(CoinProbability anotherProbability) {
+        return new CoinProbability(this.probability * anotherProbability.probability);
+    }
+
+
 }

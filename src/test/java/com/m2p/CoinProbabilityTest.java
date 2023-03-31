@@ -39,4 +39,34 @@ public class CoinProbabilityTest {
         double tailProbability = 0.5;
         assertThat(HeadsProbability , is(not(equalTo(tailProbability))));
     }
+
+    @Test
+    void toReturnTheJointProbability(){
+        CoinProbability eventOfOneProbability = new CoinProbability(0.5);
+        CoinProbability anotherProbability = new CoinProbability(0.3);
+
+        CoinProbability result = new CoinProbability(0.15);
+
+        assertThat(eventOfOneProbability.eventOccurringTogether(anotherProbability), is(equalTo(result)));
+    }
+
+    @Test
+    void toCheckIfCertainEventTakesPlace(){
+        CoinProbability expectedEventOccurring = new CoinProbability(1);
+        CoinProbability actualEventOccurring = new CoinProbability(1);
+
+        CoinProbability result = new CoinProbability(1);
+        assertThat(expectedEventOccurring.eventOccurringTogether(actualEventOccurring)  , is(equalTo(result)));
+    }
+
+
+    @Test
+    void toReturnTheJointProbabilityWhenItIsNotSame(){
+        CoinProbability eventOfOneProbability = new CoinProbability(0.5);
+        CoinProbability anotherProbability = new CoinProbability(0.3);
+
+        CoinProbability result = new CoinProbability(0.05);
+
+        assertThat(eventOfOneProbability.eventOccurringTogether(anotherProbability), is(not(equalTo(result))));
+    }
 }
